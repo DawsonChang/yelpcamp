@@ -18,7 +18,16 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
 // seedDB(); //seed the database
-mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://tiamat2009:a19610929@yelpcamp-u9vn6.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log("connected to DB!");
+}).catch(err => {
+    console.log(err);
+})
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 //use css style
@@ -77,9 +86,9 @@ app.use("/", indexRoutes);
 //       {name:"Cape Lookout State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_9-oregon.jpg"}
 //   ];
 
-// app.listen(process.env.PORT, process.env.IP, function(){
-//    console.log("The Yelpcamp server is starting!"); 
-// });
-app.listen(8080, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The Yelpcamp server is starting!"); 
 });
+// app.listen(8080, function(){
+//    console.log("The Yelpcamp server is starting!"); 
+// });
