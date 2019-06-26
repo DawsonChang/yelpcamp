@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+
+<div class="container main">
+    <div class="row">
+        <h1>Login</h1>
+        
+        <form action="/login" method="POST">
+            <div class="input-group mb-3" style="width:500px">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+                </div>
+                <input type="text" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3" style="width:500px">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default" >Password</span>
+                </div>
+                <input type="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button class="btn btn-outline-primary btn-block" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+<% include ./partials/footer %>

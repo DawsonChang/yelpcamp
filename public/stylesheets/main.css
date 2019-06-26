@@ -1,0 +1,29 @@
+.card-style img{
+    width: 100%;
+}
+.card-style{
+    padding: 0;
+}
+#showContainer{
+    margin: 15px auto;
+}
+.caption-full{
+    padding-top: 9px;
+}
+hr{
+    border-top: 1px solid white;
+}
+
+#btn-inline{
+    display: inline;
+}
+
+.main{
+    margin: 10px auto;
+    width: 40%;
+}
+
+.title{
+    margin: 20px auto ;
+
+}
