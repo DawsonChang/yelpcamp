@@ -17,9 +17,7 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-// seedDB(); //seed the database
-// mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true });
-mongoose.connect('mongodb+srv://tiamat2009:a19610929@yelpcamp-u9vn6.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://${user}:${password}@yelpcamp-u9vn6.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
@@ -61,34 +59,8 @@ app.use("/campground/:id/comment", commentRoutes);
 app.use("/campground", campgroundRoutes);
 app.use("/", indexRoutes);
 
-// Campground.create({
-//   name: "Monahans Sandhills State Park",
-//   url: "https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_3-texas.jpg",
-//   description: "This is a huge granite hill. No bathrooms. No water. Beautiful granite!"
-// }, function(err, camp){
-//     if(err){
-//         console.log("ERROR!");
-//     }
-//     else{
-//         console.log(camp);
-//     }
-// });
+const port = process.env.PORT || 8080;
 
-// var campgrounds = [
-//       {name:"Yellowstone National Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_1-oregon.jpg"},
-//       {name:"Monahans Sandhills State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_3-texas.jpg"},
-//       {name:"Dead Horse State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_4-utah.jpg"},
-//       {name:"Yampa River State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_5-colorado.jpg"},
-//       {name:"Whitefish Lake State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_6-montana.jpg"},
-//       {name:"Castle Rocks State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_7-idaho.jpg"},
-//       {name:"Sinks Canyon State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_8-wyoming.jpg"},
-//       {name:"Tahoe Donner Campground", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_2-tahoe.jpg"},
-//       {name:"Cape Lookout State Park", url:"https://www.reserveamerica.com/webphotos/racms/articles/images/fc36de23-9b7c-4c64-8afe-7ff448b3a4e7_image2_9-oregon.jpg"}
-//   ];
-
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(port, process.env.IP, function(){
    console.log("The Yelpcamp server is starting!"); 
 });
-// app.listen(8080, function(){
-//    console.log("The Yelpcamp server is starting!"); 
-// });

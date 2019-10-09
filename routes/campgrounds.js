@@ -3,10 +3,6 @@ var router  = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
 
-// router.get("/", function(req, res){
-//     res.render("frontpage");
-// });
-
 router.get("/", function(req, res){
     Campground.find({}, function(err, campgrounds){
        if(err){
